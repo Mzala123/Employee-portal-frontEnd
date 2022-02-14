@@ -3,8 +3,7 @@
 const routes = [
     {path:'/home', component:home},
     {path:'/department', component:department},    
-    {path:'/employee', component:employee},
-    
+    {path:'/employee', component:employee},    
 ]
 //Vue.use(VueRouter)
 const router = new VueRouter({
