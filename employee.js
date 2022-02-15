@@ -87,7 +87,8 @@ const employee = {
 
         <div class="p-2 w-50 bd-highlight">
              <img width="250px" height="250px" :src="PhotoPath+PhotoFileName"/>
-             <input class="m-2" type="file" @change="imageUpload">
+             <input class="m-2" type="file" @change="imageUpload"  
+              accept=".jpg,.jpeg,.png,.gif, image/jpeg,image/png,image/gif">
         </div>
     </div>
 
@@ -122,6 +123,7 @@ const employee = {
                DateOfJoining:"",
                PhotoFileName:"anonymous.png",
                PhotoPath:variables.PHOTO_URL
+              
             }
         },
         methods: {
@@ -192,12 +194,11 @@ const employee = {
                   
             },
             imageUpload(event){
-                let formData = new FormData()
-                formData.append = ('file', event.target.files[0])
 
+                let formData = new FormData()
+                formData.append('file',event.target.files[0]);
                 axios.post(variables.API_URL+"employee/savefile",
-                formData
-                )
+                formData)
                 .then((response)=>{
                   this.PhotoFileName = response.data
                 })
